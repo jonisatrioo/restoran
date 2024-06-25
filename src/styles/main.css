@@ -1,0 +1,299 @@
+* {
+margin: 0;
+box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+}
+
+/*CSS navbar*/
+.brand-name {
+  font-weight: 500;
+  font-size: 3em;
+  margin: 0.5em 1rem;
+  display: inline-block;
+  color: #000000;
+}
+
+.navbar-container{
+  width: 100%;
+  padding-block: 0.8rem;
+  min-height:80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  z-index: 9999;
+}
+ 
+.navbar-container{
+  width: 100%;
+  padding-block: 0.8rem;
+  min-height:80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  z-index: 9999;
+}
+ 
+.navbar-container div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+nav ul{
+  width: 100%;
+  list-style: none;
+  display:flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+ 
+nav li{
+  height: 40px;
+}
+ 
+nav a{
+  padding: 0.5rem 1.7rem;
+  border-radius: 20px;
+  
+  display: inline-block;
+  font-size: 1.4rem;
+  text-decoration: none;
+  min-height: 44px;
+  min-width: 44px;
+  color: #D17C44;
+ 
+ 
+  transition: all 0.2 ease-in-out;
+}
+ 
+nav a:hover{
+  background-color: #D17C44;
+  color: #F5F4F4;
+}
+
+/* css hamburger menu */
+#hamburger{
+  font-size: 33px;
+  margin: 10px auto;
+  margin-right: 30px;
+  text-decoration: none;
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+}
+/*css untuk skip to content*/
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  background-color: #bf1722;
+  color: white;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* CSS untuk image slide jumbotron */
+.sliders {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  width: 1300px;
+  transition: 1s;
+}
+
+.list img {
+  width: 1920px;
+  max-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buttons {
+  position: absolute;
+  top: 45%;
+  left: 2.5%;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff5;
+  color: #fff;
+  border: none;
+  font-family: monospace;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.buttons button:hover{
+  background-color: rgba(151, 151, 151, 0.336);
+}
+
+/* CSS untuk Restaurant Cards */
+main .title {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#restos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 7px 7px 12px -3px rgba(0,0,0,0.31);
+  overflow: hidden;
+  background-color: white;
+  
+  
+}
+
+.card:hover{
+  transform: scale(1.2);
+  transition: 0.5s;
+  transition-timing-function: ease;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+}
+.card-img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-content {
+  padding: 15px;
+  text-decoration: none;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-info {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* Main */
+main {
+  margin-top: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px){
+  .restaurant-card{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width:768px){
+
+#hamburger{
+  display: block;
+}
+#drawer {
+  top: 0;
+  height: 100%;
+  position: absolute;
+  width: 250px;
+  z-index: 999;
+  background-color: #ffffff9c;
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translate(-250px, 0);
+  transition: transform 0.5s ease-in-out;
+
+  overflow-x: hidden;
+}
+
+#drawer ul {
+  list-style-type: none;
+  padding: 0 16px;
+
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+ 
+#drawer li {
+  padding: 5px 0px;
+}
+ 
+#drawer a {
+  text-decoration: none;
+  font-size: 25px;
+}
+
+#drawer.open{
+  transform: translate(0,0);
+
+}
+
+ nav ul{
+  width:50%;
+ }
+
+.sliders{
+    height: 400px;
+  }
+
+.restaurant-card{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
