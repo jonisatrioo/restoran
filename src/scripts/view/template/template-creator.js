@@ -54,9 +54,9 @@ const createRestoDetailTemplate = (resto) => {
       <div class="restaurant-reviews">
           <h3 class="review-title">Ulasan</h3>
               <div class="review-item">
-                  ${(resto.customerReviews || []).slice(0, 3).map((review) => `
-                  <h4>${review.name} - ${review.date}</h4>
-                  <p>${review.review}</p>`).join('') || '<p>Ulasan tidak tersedia</p>'}
+                  ${(resto.customerReviews || []).slice(0, 3).map((reviews) => `
+                  <h4>${reviews.name} - ${reviews.date}</h4>
+                  <p>${reviews.review}</p>`).join('') || '<p>Ulasan tidak tersedia</p>'}
               </div>
       </div>`;
 };
