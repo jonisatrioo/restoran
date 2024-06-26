@@ -13,52 +13,45 @@ const createRestoItemTemplate = (resto) => `
                 </a>
             </div>
 `;
-const createRestoDetailTemplate = (resto) => {
-  // Tambahkan penanganan untuk memastikan `resto` terdefinisi
-  if (!resto) {
-    console.error('Data restoran tidak valid:', resto);
-    return '<p>Data restoran tidak valid</p>';
-  }
-
-  return `
-      <h2 class="resto-title">${resto.name || 'Nama tidak tersedia'}</h2>
-      <img class="resto-image" src="${CONFIG.BASE_IMAGE_URL}/${resto.pictureId}" alt="${resto.name}">
-      <div class="resto-info">
-          <h3>Informasi</h3>
-          <h4>Nama Restaurant</h4>
-          <p>${resto.name || 'Nama tidak tersedia'}</p>
-          <h4>Kategori</h4>
-          <p>${(resto.categories || []).map((category) => category.name).join(', ') || 'Kategori tidak tersedia'}</p>
-          <h4>Alamat</h4>
-          <p>${resto.address || 'Alamat tidak tersedia'}</p>
-          <h4>Kota</h4>
-          <p>${resto.city || 'Kota tidak tersedia'}</p>
-          <h4>Deskripsi</h4>
-          <p>${resto.description || 'Deskripsi tidak tersedia'}</p>
-      </div>
-      <div class="resto-menu">
-          <h2 class="restaurant-menu">Menu</h2>
-          <div class="food-detail">
-              <h3 class="menu-title">Makanan</h3>
-                  <ul class="menu-list">
-                      ${(resto.menus?.foods || []).map((food) => `<li class="list">${food.name}</li>`).join('') || '<li>Menu makanan tidak tersedia</li>'}
-                  </ul>
-          </div>
-          <div class="drink-detail">
-              <h3 class="menu-title">Minuman</h3>
-                  <ul class="menu-list">
-                      ${(resto.menus?.drinks || []).map((drink) => `<li class="list">${drink.name}</li>`).join('') || '<li>Menu minuman tidak tersedia</li>'}
-                  </ul>
-          </div>
-      </div>
-      <div class="restaurant-reviews">
-          <h3 class="review-title">Ulasan</h3>
-              <div class="review-item">
-                  ${(resto.customerReviews || []).slice(0, 3).map((reviews) => `
-                  <h4>${reviews.name} - ${reviews.date}</h4>
-                  <p>${reviews.review}</p>`).join('') || '<p>Ulasan tidak tersedia</p>'}
-              </div>
-      </div>`;
-};
+const createRestoDetailTemplate = (resto) => `
+    <h2 class="resto-title"></h2>
+    <img class="resto-image" src="${CONFIG.BASE_IMAGE_URL}/${resto.pictureId}" alt="${resto.name}">
+    <div class="resto-info">
+        <h3>Information</h3>
+        <h4>Nama Restaurant</h4>
+        <p>${resto.name}</p>
+        <h4>Kategori</h4>
+        <p>${resto.categories.map((category) => category.name).join(', ')}</p>
+        <h4>Alamat</h4>
+        <p>${resto.address}</p>
+        <h4>Kota</h4>
+        <p>${resto.city}</p>
+        <h4>Deskripsi</h4>
+        <p>${resto.description}</p>
+    </div>
+    <div class="resto-menu">
+        <h2 class="restaurant-menu">Menu</h2>
+        <div class="food-detail">
+            <h3 class="menu-title">Foods</h3>
+                <ul class="menu-list">
+                    ${resto.menus.foods.map((food) => `<li class="list">${food.name}</li>`).join('')}
+                </ul>
+        </div>
+        <div class="drink-detail">
+            <h3 class="menu-title">Drinks</h3>
+                <ul class="menu-list">
+                    ${resto.menus.drinks.map((drink) => `<li class"list">${drink.name}</li>`).join('')}
+                </ul>
+        </div>
+    </div>
+    <div class="restaurant-reviews">
+        <h3 class="review-title">Review</h3>
+            <div class="review-item">
+                ${resto.customerReviews.map((review) => `
+                <h4>${review.name} - ${review.date}</h4>
+                <p>${review.review}</p>`).slice(0, 3)}
+            </div>
+    </div>
+`;
 
 export { createRestoItemTemplate, createRestoDetailTemplate };
