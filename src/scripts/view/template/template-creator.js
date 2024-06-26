@@ -21,7 +21,7 @@ const createRestoDetailTemplate = (resto) => `
         <h4>Nama Restaurant</h4>
         <p>${resto.name}</p>
         <h4>Kategori</h4>
-        <p>${resto.categories.map((category) => category.name).join(', ')}</p>
+        <p>${resto.categories?.map((category) => category.name).join(', ')}</p>
         <h4>Alamat</h4>
         <p>${resto.address}</p>
         <h4>Kota</h4>
@@ -34,20 +34,20 @@ const createRestoDetailTemplate = (resto) => `
         <div class="food-detail">
             <h3 class="menu-title">Foods</h3>
                 <ul class="menu-list">
-                    ${resto.menus.foods.map((food) => `<li class="list">${food.name}</li>`).join('')}
+                    ${resto.menus?.foods?.map((food) => `<li class="list">${food.name}</li>`).join('')}
                 </ul>
         </div>
         <div class="drink-detail">
             <h3 class="menu-title">Drinks</h3>
                 <ul class="menu-list">
-                    ${resto.menus.drinks.map((drink) => `<li class"list">${drink.name}</li>`).join('')}
+                    ${resto.menus?.drinks?.map((drink) => `<li class"list">${drink?.name}</li>`).join('')}
                 </ul>
         </div>
     </div>
     <div class="restaurant-reviews">
         <h3 class="review-title">Review</h3>
             <div class="review-item">
-                ${resto.customerReviews.map((review) => `
+                ${resto.customerReviews?.map((review) => `
                 <h4>${review.name} - ${review.date}</h4>
                 <p>${review.review}</p>`).slice(0, 3)}
             </div>

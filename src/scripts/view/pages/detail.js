@@ -17,7 +17,7 @@ const Detail = {
     const resto = await RestoSource.detailResto(url.id);
     const restoContainer = document.querySelector('#resto-detail');
 
-    restoContainer.innerHTML = createRestoDetailTemplate(resto);
+    restoContainer.innerHTML = createRestoDetailTemplate(resto.restaurant);
   },
 };
 export default Detail;
